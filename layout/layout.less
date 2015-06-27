@@ -1,0 +1,488 @@
+/* #LAYOUT
+-------------------------------------------------- */
+
+
+/* Layout variables
+-------------------------------------------------- */
+
+@layout-gutter: 30px;
+
+/* /Layout variables
+-------------------------------------------------- */
+
+
+/**
+* Layout clearfix
+*/
+
+.layout:before,
+.layout:after {
+	content: " ";
+
+	display: table;
+}
+.layout:after {
+	clear: both;
+}
+
+
+/**
+ * Begin a layout group.
+ */
+
+/**
+ * 1. Remove any margins and paddings that might affect the grid system.
+ * 2. Negative margins to negate the layout items gutters.
+ * 3. Remove inter-cell whitespace that appears between "inline-block" child
+ *    elements.
+ * 4. Ensure consistent default alignment.
+ * 5. Required to combine fluid widths and fixed gutters.
+ */
+
+.layout {
+	display: block;
+	margin: 0; /* [1] */
+	padding: 0; /* [1] */
+	margin-left: (@layout-gutter / -2); /* [2] */
+	margin-right: (@layout-gutter / -2); /* [2] */
+	font-size: 0; /* [3] */
+	text-align: left; /* [4] */
+	box-sizing: border-box; /* [5] */
+}
+
+
+/**
+ * Layout item
+ */
+
+
+/**
+* 1. Make item full-width by default.
+* 2. Space beetwen layout items.
+* 3. Required to combine fluid widths and fixed gutters.
+* 4. Reset font size change made in "Layout".
+* 5. Align items to the tops of each other.
+*/
+
+.layout__item {
+	display: inline-block;
+
+	width: 100%; /* [1] */
+	padding-right: (@layout-gutter / 2); /* [2] */
+	padding-left: (@layout-gutter / 2); /* [2] */
+	box-sizing: border-box; /* [3] */
+
+	.font-size(1.6); /* [4] */
+	vertical-align: top; /* [5] */
+}
+
+
+/**
+ * Modifier: horizontally center one unit
+ * Set a specific unit to be horizontally centered. Doesn't affect
+ * any other units. Can still contain a child "Layout" object.
+ */
+
+.layout__item--center {
+	display: block;
+	margin: auto;
+}
+
+
+/**
+ * Layout with no gutters
+ */
+
+.layout--flush {
+	margin-left: 0;
+	margin-right: 0;
+
+	> .layout__item {
+		padding-left: 0;
+		padding-right: 0;
+		}
+ }
+
+
+/**
+* Reversed rendered order of layout items.
+*/
+
+.layout--rev {
+	direction: rtl;
+	text-align: left;
+
+	> .layout__item {
+			direction: ltr;
+			text-align: left;
+		}
+}
+
+
+/**
+* Align layout items vertically in the middle.
+*/
+
+.layout--middle {
+	vertical-align: middle;
+}
+
+
+/**
+* Align layout items vertically in the bottom.
+*/
+
+.layout--bottom {
+	vertical-align: bottom;
+}
+
+
+/**
+* Alignment layout items on the right side
+*/
+
+.layout--right {
+	text-align: right;
+
+	> .layout__item {
+			text-align: left;
+	}
+}
+
+
+/**
+* Alignment layout items on the center
+*/
+
+.layout--center {
+	text-align: center;
+
+	> .layout__item {
+			text-align: left;
+	}
+}
+
+
+/**
+* Cause layout items to take up a non-explicit amount of width.
+*/
+
+.layout--auto > .layout__item {
+	width: auto;
+}
+
+
+@media screen and (min-width: 64em) {
+
+	.grid__item--lg-1 {
+		width: 8.3333333333333%;
+	}
+
+	.grid__item--lg-2 {
+		width: 16.6666666666667%;
+	}
+
+	.grid__item--lg-3 {
+		width: 25%;
+	}
+
+	.grid__item--lg-4 {
+		width: 33.3333333333333%;
+	}
+
+	.grid__item--lg-5 {
+		width: 41.6666666666667%;
+	}
+
+	.grid__item--lg-6 {
+		width: 50%;
+	}
+
+	.grid__item--lg-7 {
+		width: 58.3333333333333%;
+	}
+
+	.grid__item--lg-8 {
+		width: 66.6666666666667%;
+	}
+
+	.grid__item--lg-9 {
+		width: 75%;
+	}
+
+	.grid__item--lg-10 {
+		width: 83.3333333333333%;
+	}
+
+	.grid__item--lg-11 {
+		width: 91.6666666666667%;
+	}
+
+	.grid__item--lg-12 {
+		width: 100%;
+	}
+
+/**
+* Offsetting items: moves items to the right using margin-left
+*/
+
+	.grid__item--lg-ofs-1 {
+		margin-left: 8.3333333333333%;
+	}
+
+	.grid__item--lg-ofs-2 {
+		margin-left: 16.6666666666667%;
+	}
+
+	.grid__item--lg-ofs-3 {
+		margin-left: 25%;
+	}
+
+	.grid__item--lg-ofs-4 {
+		margin-left: 33.3333333333333%;
+	}
+
+	.grid__item--lg-ofs-5 {
+		margin-left: 41.6666666666667%;
+	}
+
+	.grid__item--lg-ofs-6 {
+		margin-left: 50%;
+	}
+
+	.grid__item--lg-ofs-7 {
+		margin-left: 58.3333333333333%;
+	}
+
+	.grid__item--lg-ofs-8 {
+		margin-left: 66.6666666666667%;
+	}
+
+	.grid__item--lg-ofs-9 {
+		margin-left: 75%;
+	}
+
+	.grid__item--lg-ofs-10 {
+		margin-left: 83.3333333333333%;
+	}
+
+	.grid__item--lg-ofs-11 {
+		margin-left: 91.6666666666667%;
+	}
+
+
+	.grid__col--lg-0 {
+		display: none;
+	}
+}
+
+
+@media screen and (max-width: 63.9375em) {
+	.grid__item--md-1 {
+		width: 8.3333333333333%;
+	}
+
+	.grid__item--md-2 {
+		width: 16.6666666666667%;
+	}
+
+	.grid__item--md-3 {
+		width: 25%;
+	}
+
+	.grid__item--md-4 {
+		width: 33.3333333333333%;
+	}
+
+	.grid__item--md-5 {
+		width: 41.6666666666667%;
+	}
+
+	.grid__item--md-6 {
+		width: 50%;
+	}
+
+	.grid__item--md-7 {
+		width: 58.3333333333333%;
+	}
+
+	.grid__item--md-8 {
+		width: 66.6666666666667%;
+	}
+
+	.grid__item--md-9 {
+		width: 75%;
+	}
+
+	.grid__item--md-10 {
+		width: 83.3333333333333%;
+	}
+
+	.grid__item--md-11 {
+		width: 91.6666666666667%;
+	}
+
+	.grid__item--md-12 {
+		width: 100%;
+	}
+
+/**
+* Offsetting items: moves items to the right
+*/
+
+	.grid__item--md-ofs-1 {
+		margin-left: 8.3333333333333%;
+	}
+
+	.grid__item--md-ofs-2 {
+		margin-left: 16.6666666666667%;
+	}
+
+	.grid__item--md-ofs-3 {
+		margin-left: 25%;
+	}
+
+	.grid__item--md-ofs-4 {
+		margin-left: 33.3333333333333%;
+	}
+
+	.grid__item--md-ofs-5 {
+		margin-left: 41.6666666666667%;
+	}
+
+	.grid__item--md-ofs-6 {
+		margin-left: 50%;
+	}
+
+	.grid__item--md-ofs-7 {
+		margin-left: 58.3333333333333%;
+	}
+
+	.grid__item--md-ofs-8 {
+		margin-left: 66.6666666666667%;
+	}
+
+	.grid__item--md-ofs-9 {
+		margin-left: 75%;
+	}
+
+	.grid__item--md-ofs-10 {
+		margin-left: 83.3333333333333%;
+	}
+
+	.grid__item--md-ofs-11 {
+		margin-left: 91.6666666666667%;
+	}
+}
+
+@media screen and (min-width: 40.0625em) and (max-width: 63.9375em) {
+	.grid__item--md-0 {
+		display: none;
+	}
+}
+
+
+@media screen and (max-width: 40em) {
+
+	.grid__item--sm-1 {
+		width: 8.3333333333333%;
+	}
+
+	.grid__item--sm-2 {
+		width: 16.6666666666667%;
+	}
+
+	.grid__item--sm-3 {
+		width: 25%;
+	}
+
+	.grid__item--sm-4 {
+		width: 33.3333333333333%;
+	}
+
+	.grid__item--sm-5 {
+		width: 41.6666666666667%;
+	}
+
+	.grid__item--sm-6 {
+		width: 50%;
+	}
+
+	.grid__item--sm-7 {
+		width: 58.3333333333333%;
+	}
+
+	.grid__item--sm-8 {
+		width: 66.6666666666667%;
+	}
+
+	.grid__item--sm-9 {
+		width: 75%;
+	}
+
+	.grid__item--sm-10 {
+		width: 83.3333333333333%;
+	}
+
+	.grid__item--sm-11 {
+		width: 91.6666666666667%;
+	}
+
+	.grid__item--sm-12 {
+		width: 100%;
+	}
+
+
+/**
+* Offsetting items: moves items to the right
+*/
+
+	.grid__item--sm-ofs-1 {
+		margin-left: 8.3333333333333%;
+	}
+
+	.grid__item--sm-ofs-2 {
+		margin-left: 16.6666666666667%;
+	}
+
+	.grid__item--sm-ofs-3 {
+		margin-left: 25%;
+	}
+
+	.grid__item--sm-ofs-4 {
+		margin-left: 33.3333333333333%;
+	}
+
+	.grid__item--sm-ofs-5 {
+		margin-left: 41.6666666666667%;
+	}
+
+	.grid__item--sm-ofs-6 {
+		margin-left: 50%;
+	}
+
+	.grid__item--sm-ofs-7 {
+		margin-left: 58.3333333333333%;
+	}
+
+	.grid__item--sm-ofs-8 {
+		margin-left: 66.6666666666667%;
+	}
+
+	.grid__item--sm-ofs-9 {
+		margin-left: 75%;
+	}
+
+	.grid__item--sm-ofs-10 {
+		margin-left: 83.3333333333333%;
+	}
+
+	.grid__item--sm-ofs-11 {
+		margin-left: 91.6666666666667%;
+	}
+
+
+	.grid__col--sm-0 {
+		display: none;
+	}
+}
